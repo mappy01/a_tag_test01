@@ -99,11 +99,15 @@ xhr.onreadystatechange = () =>{
   if (xhr.readyState == 4 && xhr.status == 200) {
     // jsonをオブジェクトに変更
 		
-		var json = JSON.stringify(xhr.responseText);
+		console.log( xhr.responseText );
+		/*
+		var  json = JSON.stringify(xhr.responseText);
 		console.log(json);
 		
     const  jsonObj = JSON.parse(json);          
-    console.log( jsonObj);        
+    console.log( jsonObj);  
+
+			*/
  
 }
 
