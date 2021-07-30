@@ -1,0 +1,129 @@
+
+
+<html>
+
+<head>
+
+<script>
+
+// var articleNum = 2;
+
+
+ /*
+ 
+ var affAry01 =
+ [
+	 
+	 {
+		dispStr :  "DTM初めてガイド",						
+		ref :  "https://store.shimamura.co.jp/ec/contents/ols/00dtm/vol1.html"
+	},
+
+	{
+		dispStr :  "藤本健の DTMステーション",						
+		ref : "https://www.dtmstation.com/"
+	}
+	 
+ ];
+ 
+ */
+  
+ var affAry01 =
+ [
+	 
+	 {
+		dispStr :  "『デブ味覚』リセットで10日で-3kg! レモン水うがいダイエット 単行本",						
+		ref :   "https://www.amazon.co.jp/%E3%80%8E%E3%83%87%E3%83%96%E5%91%B3%E8%A6%9A%E3%80%8F%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%A710%E6%97%A5%E3%81%A7-3kg-%E3%83%AC%E3%83%A2%E3%83%B3%E6%B0%B4%E3%81%86%E3%81%8C%E3%81%84%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88-%E5%AE%AE%E6%9C%AC%E6%97%A5%E5%87%BA/dp/4866672854/ref=sr_1_1_sspa?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88&qid=1627628364&s=books&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzUDNORjFTTDMzUVU5JmVuY3J5cHRlZElkPUEwMDg4NTcxMVYwRkc3S0dJQzlFNyZlbmNyeXB0ZWRBZElkPUFKUkRESDhMVFRMWEgmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl"
+	},
+
+	{
+		dispStr :  "図解 ダイエットは運動1割、食事9割 単行本",						
+		ref : "https://www.amazon.co.jp/%E5%9B%B3%E8%A7%A3-%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88%E3%81%AF%E9%81%8B%E5%8B%951%E5%89%B2%E3%80%81%E9%A3%9F%E4%BA%8B9%E5%89%B2-%E6%A3%AE-%E6%8B%93%E9%83%8E/dp/4799319396/ref=sr_1_3?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88&qid=1627628364&s=books&sr=1-3"
+	}
+	 
+ ];
+ 
+ 
+ 
+ function init02()
+ {
+ 
+	var len = affAry01.length;
+		
+	var idx = Math.floor( Math.random() * len );
+		
+	var affObj = affAry01[ idx ];
+		
+	var text = affObj.dispStr;
+	var ref = affObj.ref;
+	
+	console.log( text );
+	console.log( ref );
+			
+	var pObj = document.getElementById('div-container01');
+
+	// HTMLAnchorElement オブジェクトを作成する
+	var anchor = document.createElement("a");
+
+	anchor.target = '_blank';
+
+	// ハイパーリンク先を指定
+	// anchor.href = "http://example.com/";
+	anchor.href = ref;
+
+	// BODY のノードリストに登録する
+	pObj.appendChild(anchor);
+
+	elementSetTextContent( anchor, text );
+	
+ }
+
+
+function init03()
+{
+const xhr = new XMLHttpRequest();
+ 
+// リクエスト
+//xhr.open("GET", 'https://jsonplaceholder.typicode.com/todos/');
+
+xhr.open("GET", 'https://mappy01.github.io/a_tag_test01/jsn-sample.json');
+
+ 
+//リクエスト送信
+xhr.send();
+ 
+// 自動的に呼ばれる関数
+xhr.onreadystatechange = () =>{
+  // readyState XMLHttpRequest の状態 4: リクエストが終了して準備が完了
+  // status httpステータス
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    // jsonをオブジェクトに変更
+    const  jsonObj = JSON.parse(xhr.responseText);          
+    console.log(jsonObj);        
+ 
+}
+
+}
+
+}  // end of function init03
+
+
+
+
+</script>
+
+</head>
+
+<body onload = "init03()">
+
+<div id="div-container01">
+
+</div>
+
+
+</body>
+
+
+</html>
+
+
