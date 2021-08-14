@@ -1,5 +1,4 @@
 
-// JSON
 var d = { "name": "Ronald", "number": 7, "nation": "Portugal" };
 
 
