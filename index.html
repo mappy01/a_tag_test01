@@ -1,0 +1,176 @@
+
+<!--端末を模したページ -->
+
+<html>
+<head>
+
+  <link href="./css/style_wv_iframe_camping.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div id="my_aff_div_content">
+
+    <a href="https://elabo-shop.jp/shop/pages/dl001.aspx?utm_source=a8100&utm_medium=affiliate&utm_campaign=dl001&cid=ch1xg9s1ug5y&p=5e44fe1721f00
+" target="blank" >  
+    <div id="my_aff_div_vid01" >
+           
+ <img src="./image/a.png">
+       
+    </div>  <!-- end of div_vid01 -->
+    
+   </a>
+       
+    <a href="https://elabo-shop.jp/shop/pages/dl001.aspx?utm_source=a8100&utm_medium=affiliate&utm_campaign=dl001&cid=ch1xg9s1ug5y&p=5e44fe1721f00
+" target="_blank" >  
+ 
+     <div id="my_aff_div_text">   
+
+     </div> <!-- end of div_text -->
+     </a> 
+
+</div> <!-- end of div_content -->
+
+<script>
+
+
+// メディア(動画・画像)、テキストの位置、サイズの調節
+var div_vid = document.getElementById("my_aff_div_vid01");
+
+var h_str = div_vid.clientHeight;
+
+
+var w_num = Number( h_str);
+
+var newW = w_num * 16 /9 ;
+
+div_vid.style.width = newW;
+
+
+var div_text = document.getElementById("my_aff_div_text");
+
+div_text.style.left = ( div_vid.offsetLeft + newW  );
+
+var div_notify = document.getElementById("my_aff_div_content");
+
+div_text.style.width = div_notify.clientWidth - newW; 
+
+
+
+// 表示するテキストをスライドで変更していく
+
+var txt_cnt = 0;
+
+var state_cnt = 0;
+var cnt = 0;
+var timerID;
+
+var opacity = 0;
+
+var txtAry = [
+
+"医師の方の",
+"転職のための",
+"セカンドオピニオン"
+
+];
+
+
+function txtSlideShow()
+{
+
+
+  switch( state_cnt )
+  {
+
+  case 0 :
+
+    div_text.textContent = txtAry[ txt_cnt % txtAry.length ];
+
+    timerID = setInterval( 
+    function()
+    {
+      cnt ++;
+      
+      opacity += 0.1;
+    
+      div_text.style.opacity = opacity;
+    
+      if( cnt >= 10 )
+      {
+       clearInterval( timerID );
+       state_cnt ++;
+       cnt = 0;
+             
+       txtSlideShow();
+   
+      }
+    
+    }, 80 );
+  
+  break;
+  
+  case 1 :
+  timerID = setTimeout(
+  function()
+    {
+      clearTimeout( timerID );
+    
+      state_cnt ++;
+    
+      txtSlideShow();
+  
+    }, 2800 );
+  
+    break;
+  
+  case 2:
+
+    timerID = setInterval( 
+    function()
+    {
+      cnt ++;
+      opacity -= 0.08
+    
+      div_text.style.opacity = opacity;
+    
+      if( cnt >= 13 )
+      {
+       clearInterval( timerID );
+       state_cnt = 0;
+       txt_cnt ++;
+       cnt = 0;
+             
+       txtSlideShow();
+   
+      }
+    
+    }, 80 );
+  
+    break;
+  
+  default : 
+    break;
+ 
+  
+  }
+
+}
+
+
+ txtSlideShow();
+
+</script>
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
